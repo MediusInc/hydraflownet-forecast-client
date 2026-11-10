@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hydraflownet-forecast-client"
+version = "0.1.0"
+description = "Download historical forecasts from the HydraFlowNet API to CSV."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "requests",
+    "pandas",
+    "tqdm",
+]
+
+[project.scripts]
+hydraflownet-download = "hydraflownet_forecast_client.download_forecasts:main"
+
+[dependency-groups]
+dev = [
+    "pytest",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
